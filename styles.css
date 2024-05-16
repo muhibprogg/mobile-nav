@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.header {
+    background-color: #F6F8FA;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    gap: 6rem;
+    list-style: none;
+}
+
+.nav-list a:link,
+.nav-list a:visited {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #111;
+}
+
+.nav-list .cta:link,
+.nav-list .cta:visited {
+    background-color: #1F883D;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 0.3em;
+}
+
+button {
+    border: 1px solid #636C76;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2em;
+}
+
+.buttons,
+button {
+    display: none;
+}
+
+@media (max-width: 600px){
+
+    body, html {
+        overflow-x: hidden;
+    }
+    .header {
+        justify-content: flex-end;
+    }
+
+    .buttons {
+        padding: 0 2rem;
+    }
+    .main-nav {
+        background-color: rgba(116, 215, 251, 0.4);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        
+        transform: translateX(100%);
+
+        transition: all 0.3s;
+    }
+
+    .nav-open .main-nav {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    .nav-open .btn--close {
+        display: block;
+    }
+
+    .nav-open .btn--open {
+        display: none;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn--open, .buttons {
+        display: block;
+        z-index: 999;
+    }
+}
