@@ -58,6 +58,10 @@ button {
 
 @media (max-width: 600px){
 
+    .header {
+        position: relative;
+    }
+
     body, html {
         overflow-x: hidden;
     }
